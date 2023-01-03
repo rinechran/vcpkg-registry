@@ -74,11 +74,6 @@ jobs:
             choco install --yes --no-progress `
               rsync ninja jq nuget.commandline
       - run:
-          name: "Print with jq"
-          command: |
-            Get-Content .circleci/port-windows.txt | jq -Rn '[inputs]'
-            Get-Content .circleci/port-uwp.txt | jq -Rn '[inputs]'
-      - run:
           name: "Setup: microsoft/vcpkg(2022.08.15)"
           command: |
             New-Item -Type Directory -Force -Path $env:VCPKG_DOWNLOADS
